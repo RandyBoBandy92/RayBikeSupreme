@@ -1,0 +1,525 @@
+/* General Styles */
+:root {
+  --neon-purple: #ee47f6;
+  --neon-blue: #3cbbc7;
+}
+
+@font-face {
+  font-family: "Suggested";
+  src: url("../media/fonts/suggested/Suggested.ttf");
+}
+
+@font-face {
+  font-family: "Press Start";
+  src: url("../media/fonts/PressStart2P-Regular.ttf");
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Typography */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+input,
+select,
+label,
+button {
+  font-family: "Press Start";
+  text-transform: uppercase;
+}
+
+/* Body Styles */
+body {
+  background-color: black;
+  color: white;
+}
+
+/* Component Styles */
+h1.ray-bike-title {
+  font-size: 8rem;
+  font-family: "Suggested";
+  margin-top: 9px;
+  margin-bottom: 2rem;
+  color: var(--neon-blue);
+  text-align: center;
+  text-shadow: 6px 2px 2px var(--neon-purple);
+}
+
+button {
+  width: 150px;
+  margin: auto;
+  padding: 8px 0;
+  background-color: black;
+  color: white;
+  border: 2px solid var(--neon-purple);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:disabled {
+  color: gray;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--neon-blue);
+}
+
+kbd {
+  width: max-content;
+  font-family: "Press Start";
+  background-color: gray;
+  padding: 1px 2px;
+  border: 1px solid darkgray;
+  margin: 3px;
+}
+
+.music-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+}
+
+.music-button p {
+  position: absolute;
+  left: -100px;
+  top: 1px;
+  font-size: 0.8rem;
+  animation: 800ms ease-in-out 0s infinite alternate running bounce;
+}
+
+@keyframes bounce {
+  from {
+    left: -110px;
+  }
+
+  to {
+    left: -90px;
+  }
+}
+
+button#theme-music-toggle {
+  background-image: url("../media/volume-up-fill.svg");
+  background-size: cover;
+  height: 40px;
+  width: 40px;
+  border: unset;
+}
+
+button#theme-music-toggle.mute {
+  background-image: url("../media/volume-mute-fill.svg");
+  background-size: cover;
+}
+
+button#theme-music-toggle img {
+  fill: white;
+}
+/* Game Container Styles */
+
+#game-container {
+  width: 1200px;
+  height: 800px;
+  margin: auto;
+}
+
+/* Start Screen Styles */
+
+#start-screen {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  font-family: "Press Start", sans-serif;
+}
+
+#start-video {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  top: 0;
+  z-index: -1;
+}
+
+#start-screen h2#enter {
+  text-align: center;
+  margin-top: 8rem;
+  animation: blinker 2s step-start infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Players Joined Styles */
+
+.players-joined {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 290px;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+}
+
+.player-popup {
+  padding: 0 1rem;
+  transform: translateX(-300px);
+}
+
+.player-popup:first-child {
+  padding-top: 1rem;
+}
+
+.player-popup h1,
+.player-popup h2 {
+  margin: 10px;
+}
+
+.player-popup h2 {
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+.player-popup img {
+  transform: rotate(90deg);
+  margin-top: -5px;
+  margin-left: 25px;
+}
+
+.pop-in {
+  animation-duration: 5s;
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-name: pop-in-anim;
+}
+
+@keyframes pop-in-anim {
+  0% {
+    transform: translateX(-300px);
+  }
+  20% {
+    transform: translateX(0px);
+  }
+  70% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-300px);
+  }
+}
+
+/* Menu Styles */
+
+#menu {
+  text-align: center;
+}
+
+.add-player {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto 0 auto;
+  align-items: center;
+}
+
+.add-player button {
+  margin: 10px 0;
+}
+
+.add-player input {
+  background-color: black;
+  color: white;
+  border: 2px solid var(--neon-purple);
+  height: 50px;
+  text-align: center;
+}
+
+.add-player select {
+  margin: 1rem;
+  background-color: black;
+  color: white;
+  border: 2px solid var(--neon-purple);
+  height: 50px;
+  width: 328.5px;
+  text-align: center;
+}
+
+.add-player input::placeholder {
+  text-align: center;
+}
+
+/* Bike Select Styles */
+
+.add-player .bike-photo {
+  width: 41px;
+  height: 76px;
+  align-self: center;
+  margin: 1rem;
+  animation: rotation 8s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+/* Speed Select */
+
+.select-speed {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  width: 300px;
+}
+
+.speed-option {
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+}
+
+.speed-option input {
+  height: 25px;
+  width: 25px;
+  margin: 5px auto;
+}
+
+/* Help Screen Modal Styles */
+
+.modal-bg {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 800px;
+  width: 1200px;
+  display: grid;
+  place-items: center;
+}
+
+.modal-window {
+  height: 80%;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 1);
+  transform: scale(0);
+  transition: all 0.5s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-window video {
+  width: auto;
+  height: 400px;
+}
+
+.animate-modal {
+  transform: scale(1);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+}
+
+.player-1,
+.player-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 1rem;
+}
+
+.player-1 span,
+.player-2 span {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Game Screen Styles */
+
+/* Scoreboard Styles */
+
+#game-screen #scoreboard {
+  position: relative;
+  border: 1px solid var(--neon-blue);
+  height: 200px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.player-score-card {
+  display: grid;
+  place-items: center;
+  width: 300px;
+}
+
+.player-score-card h2 {
+  font-size: 1.2rem;
+  margin: 0;
+  margin-top: 20px;
+}
+
+.player-score-card img {
+  transform: rotate(-90deg) scale(0.7);
+  /* margin-top: -40px; */
+}
+
+.player-score-card .trophies {
+  height: 19px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.player-score-card .trophies span {
+  margin: 5px 5px;
+}
+/* player 2 has to be rotated in the other direction */
+.player-score-card:nth-child(2) img {
+  transform: rotate(90deg) scale(0.7);
+}
+
+/* Game Over Popup Styles */
+
+.game-over-popup {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 9001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  transform: translateY(-300px);
+}
+
+.game-over-popup h2:first-child {
+  font-size: 2rem;
+}
+
+.game-over-popup h2 {
+  margin: 10px;
+}
+
+.game-over-popup .popup-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.game-over-popup button {
+  height: 54px;
+  margin: 0 10px;
+}
+
+.slide-down {
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+  animation-name: slide-down-anim;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide-down-anim {
+  from {
+    transform: translateY(-300px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+/* Canvas Styles */
+
+/* Game Over Styles */
+
+#game-over-screen {
+  height: 100%;
+  perspective: 1200px;
+  position: relative;
+  overflow: hidden;
+}
+
+#game-over-screen .ray-bike-title {
+  font-size: 9rem;
+  color: white;
+  text-shadow: unset;
+}
+
+#game-over-screen .top-fade {
+  position: absolute;
+  top: 0;
+  z-index: 9000;
+  height: 100%;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 29%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+#game-over-screen .credits {
+  text-align: center;
+  transform-origin: 50% 100%;
+  position: relative;
+  top: 900px;
+}
+
+.credits-animation {
+  animation: star-wars-credits 60s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes star-wars-credits {
+  from {
+    top: 900px;
+    transform: rotateX(30deg) translateZ(0);
+  }
+  to {
+    top: -4500px;
+    transform: rotateX(30deg) translateZ(-1000px);
+  }
+}
+
+.credits {
+  font-size: 2rem;
+}
+
+.credits h2 {
+  margin-top: 40px;
+}
+
+.credits h2:last-of-type {
+  margin-top: 1100px;
+}
+
+.skip-popup {
+  position: absolute;
+  bottom: 0;
+  right: 50px;
+  font-size: 0.8rem;
+}

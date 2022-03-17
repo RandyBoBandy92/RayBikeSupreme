@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Normalize -->
+  <link rel="stylesheet" href="./styles/normalize.css" />
+  <!-- My Styles -->
+  <link rel="stylesheet" href="./styles/style.css" />
+  <title>Ray Bike Supreme!!</title>
+</head>
+
+<body>
+  <div id="game-container">
+    <div id="start-screen">
+      <div class="music-button">
+        <p>click →</p>
+        <button id="theme-music-toggle" class="mute">
+      </div>
+      </button>
+      <h1 class="ray-bike-title">
+        Ray Bike <br />
+        Supreme
+      </h1>
+      <h2 id="enter">press enter</h2>
+      <div id="players-joined" class="players-joined"></div>
+      <div hidden id="menu" class="menu">
+        <div class="add-player">
+          <input aria-label="player input" id="player-name-input" type="text" placeholder="Enter player name" />
+          <img src="./media/redBike.png" alt="a ray bike" id="bike-photo" class="bike-photo" />
+          <label for="player-bike-select">Select a bike:</label>
+          <select name="bikes" id="player-bike-select">
+            <option value="red">RED</option>
+            <option value="blue">BLUE</option>
+            <option value="green">GREEN</option>
+          </select>
+          <label for="">Select Bike Speed:</label>
+          <div class="select-speed">
+            <div class="speed-option">
+              <label for="normal">Normal</label>
+              <input checked type="radio" name="speed" id="normal" value="normal">
+            </div>
+            <div class="speed-option">
+              <label for="ludicrous">ludicrous</label>
+              <input type="radio" name="speed" id="ludicrous" value="ludicrous">
+            </div>
+          </div>
+          <button disabled id="add-player-button">Add Player</button>
+        </div>
+        <div class="start-and-help">
+          <button id="help-button">Help</button>
+          <button disabled id="start-game-button">Start</button>
+        </div>
+      </div>
+      <div id="modal" class="hidden modal-bg">
+        <div class="modal-window">
+          <h2>How to Play</h2>
+          <div class="controls">
+            <div class="player-1">
+              <h3>Player 1</h3>
+              <kbd>w</kbd>
+              <span>
+                <kbd>a</kbd>
+                <kbd>s</kbd>
+                <kbd>d</kbd>
+              </span>
+            </div>
+            <div class="player-2">
+              <h3>Player 2</h3>
+              <kbd>↑</kbd>
+              <span>
+                <kbd>←</kbd>
+                <kbd>↓</kbd>
+                <kbd>→</kbd>
+              </span>
+            </div>
+          </div>
+          <video muted autoplay loop src="./media/videos/tutorial.mp4"></video>
+          <button id="ok-modal-button">OK</button>
+        </div>
+      </div>
+      <audio id="title-track" loop src="./media/audio/Gigakoops - Intro.mp3"></audio>
+      <video id="start-video" loop autoplay muted src="./media/videos/neonGrid.mp4"></video>
+    </div>
+    <div class="hidden" id="game-screen">
+      <div id="scoreboard">
+        <div class="game-over-popup" id="game-over-popup">
+          <h2>GAME OVER</h2>
+          <h2 id="victory-text"></h2>
+          <div class="popup-buttons">
+            <button id="play-again-button">Play Again</button>
+            <button id="quit-button">Quit</button>
+          </div>
+        </div>
+      </div>
+      <audio id="game-track" loop src="./media/audio/Defrini - The Chonker.mp3"></audio>
+      <audio id="game-track-ludicrous" loop src="./media/audio/Defrini - The Chonker-Ludicrous.mp3"></audio>
+      <audio id="game-over-voice" src="./media/audio/gameOverVoice.wav"></audio>
+    </div>
+    <div class="hidden" id="game-over-screen">
+      <div class="top-fade"></div>
+      <div class="skip-popup">
+        <h2><kbd>↵</kbd> skip</h2>
+      </div>
+      <div id="credits" class="credits">
+        <h1 class="ray-bike-title">
+          Ray Bike <br />
+          Supreme
+        </h1>
+        <h2>Design</h2>
+        <h3>Randy Gulak</h3>
+        <h2>Code</h2>
+        <h3>Randy Gulak</h3>
+        <h2>Music</h2>
+        <h3>Intro/Credits: Gigakoops - "Intro"</h3>
+        <h3>Theme: Defrini - "The Chonker"</h3>
+        <h3>Ludicrous Theme Remix: Ciaran McGuigan</h3>
+        <h2>Art</h2>
+        <h3>Bikes: Shutterstock </h3>
+        <h3>Neon Grid: GumballForAPenny on Youtube</h3>
+        <h2>lorem</h2>
+        <h3>dr. ipsum dolor</h3>
+        <h2>Fonts</h2>
+        <h3>Title: "Suggested"</h3>
+        <h3>Text: "Press Start 2P"</h3>
+        <h2>Sound FX</h2>
+        <h3>freesound.org</h3>
+        <h2>Special Thanks To</h2>
+        <h3>BCIT</h3>
+        <h3>Viewers like you</h3>
+        <h2>in loving memory</h2>
+        <h3>my sanity: (?-2021)</h3>
+        <h3>(thanks vanilla javascript/canvas)</h3>
+      </div>
+    </div>
+  </div>
+  <script defer src="./scripts/script.js"></script>
+</body>
+
+</html>
